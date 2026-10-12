@@ -1,0 +1,25 @@
+{
+  "last_morning": "2026-10-12",
+  "last_evening": null,
+  "telegram_offset": 361685610,
+  "leetcode": {
+    "done": [],
+    "skipped": [],
+    "streak": 0,
+    "last_done_date": null
+  },
+  "seen_articles": [
+    "https://www.cnbc.com/2026/10/12/faa-saudi-arabia-flight-risks.html",
+    "https://www.kdnuggets.com/the-rise-of-ai-software-clones-why-rea-and-artcraft-are-going-viral",
+    "https://www.sciencedaily.com/releases/2026/10/261011211604.htm"
+  ],
+  "recent_assignments": [
+    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
+    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
+  ],
+  "today": {
+    "date": "2026-10-12",
+    "leetcode": "two-sum"
+  }
+}
