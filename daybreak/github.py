@@ -46,7 +46,9 @@ def status(project: dict, token: str | None, getter=_get) -> ProjectStatus:
     if not st.repo:
         return st
     try:
-        commits = getter(f"/repos/{st.repo}/commits", token, {"per_page": 1})
+        commits = getter(f"/repos/{st.repo}/commits", token, {"per_page": 10})
+        # Skip Daybreak's own daily save commits; we want YOUR last real change.
+        commits = [c for c in commits if "[skip ci]" not in c["commit"]["message"]]
         if commits:
             c = commits[0]["commit"]
             st.last_commit = c["message"].splitlines()[0][:120]
