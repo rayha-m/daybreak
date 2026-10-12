@@ -16,8 +16,7 @@ from .github import ProjectStatus
 from .news import Article
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-DEFAULT_MODEL = "gemini-2.5-flash"
-
+DEFAULT_MODEL = "gemini-flash-latest"   # alias Google points at its newest Flash model
 
 def build_prompt(goals: list[dict], candidates: dict[str, list[Article]],
                  projects: list[ProjectStatus], day_summary: str,
