@@ -20,7 +20,10 @@
     "https://www.sciencedaily.com/releases/2026/10/261011211550.htm",
     "https://www.cnbc.com/2026/10/12/beth-hammack-fed-inflation-policy.html",
     "https://towardsdatascience.com/agentic-systems-a-practitioners-guide-to-6-advanced-architectural-patterns/",
-    "https://www.sciencedaily.com/releases/2026/10/261007042115.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261007042115.htm",
+    "https://www.cnbc.com/2026/10/12/ionq-elisity-acquisition-cybersecurity.html",
+    "https://towardsdatascience.com/i-built-a-trap-for-ai-image-judges-they-walked-into-a-different-one/",
+    "https://www.sciencedaily.com/releases/2026/10/261008102713.htm"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -34,7 +37,10 @@
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Review today's note on monetary policy and write a quick paragraph explaining how higher interest rates impact corporate valuations and consumer spending.",
     "Data Science: Open a Jupyter notebook and sketch out a basic router-dispatcher pattern for multi-step agentic workflows as covered in the architectural guide.",
-    "Medicine: Summarize how the NEOPRISM-CRC clinical trial used neoadjuvant immunotherapy to shrink bowel tumors before surgery."
+    "Medicine: Summarize how the NEOPRISM-CRC clinical trial used neoadjuvant immunotherapy to shrink bowel tumors before surgery.",
+    "Finance: Write a three-sentence explanation of what an all-stock buyout implies for existing shareholder dilution and why a buyer might prefer stock over debt or cash.",
+    "Data Science: In a quick notebook cell, draft a small test function that randomizes choice order to detect position bias when evaluating an LLM prompt response.",
+    "Medicine: Note down in 2-3 sentences the core biological difference between surgical fat removal and injectable therapeutics that trigger targeted cell death."
   ],
   "today": {
     "date": "2026-10-12",
