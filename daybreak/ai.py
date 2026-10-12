@@ -16,7 +16,9 @@ from .github import ProjectStatus
 from .news import Article
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-DEFAULT_MODEL = "gemini-flash-latest"   # alias Google points at its newest Flash model
+DEFAULT_MODEL = "gemini-flash-latest"        # alias Google points at its newest Flash model
+BACKUP_MODEL = "gemini-flash-lite-latest"    # lighter model, used if the main one is overloaded
+
 
 def build_prompt(goals: list[dict], candidates: dict[str, list[Article]],
                  projects: list[ProjectStatus], day_summary: str,
@@ -68,24 +70,45 @@ def build_prompt(goals: list[dict], candidates: dict[str, list[Article]],
     return "\n".join(lines), by_id
 
 
-def call_gemini(prompt: str, api_key: str, model: str | None = None, timeout: int = 60) -> dict:
+def call_gemini(prompt: str, api_key: str, model: str | None = None, timeout: int = 60,
+                sleep=None, log=print) -> dict:
+    """Asks Gemini, retrying when Google's servers are busy.
+
+    429 = too many requests, 500/503 = Google overloaded. Those usually clear up
+    within seconds, so we wait and try again, then try a lighter backup model.
+    """
+    import time
     import requests
-    model = model or os.environ.get("GEMINI_MODEL") or DEFAULT_MODEL
-    resp = requests.post(
-        GEMINI_URL.format(model=model),
-        headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
-        json={
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"responseMimeType": "application/json", "temperature": 0.7},
-        },
-        timeout=timeout,
-    )
-    resp.raise_for_status()
-    parts = resp.json()["candidates"][0]["content"]["parts"]
-    text = "".join(p.get("text", "") for p in parts if not p.get("thought")).strip()
-    if text.startswith("```"):   # just in case the model wraps it in a code block
-        text = text.strip("`").removeprefix("json").strip()
-    return json.loads(text)
+    sleep = sleep or time.sleep
+    models = [model or os.environ.get("GEMINI_MODEL") or DEFAULT_MODEL, BACKUP_MODEL]
+    last_error = None
+    for m in dict.fromkeys(models):            # removes duplicates, keeps order
+        for attempt, wait in enumerate((0, 10, 30)):
+            if wait:
+                log(f"  … Gemini busy ({last_error}), retrying {m} in {wait}s")
+                sleep(wait)
+            resp = requests.post(
+                GEMINI_URL.format(model=m),
+                headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {"responseMimeType": "application/json", "temperature": 0.7},
+                },
+                timeout=timeout,
+            )
+            if resp.status_code in (429, 500, 502, 503, 504):
+                last_error = resp.status_code
+                continue                        # busy: wait and retry
+            if resp.status_code == 404:
+                last_error = 404
+                break                           # model doesn't exist: go to backup model
+            resp.raise_for_status()             # anything else (bad key, etc.) is a real error
+            parts = resp.json()["candidates"][0]["content"]["parts"]
+            text = "".join(p.get("text", "") for p in parts if not p.get("thought")).strip()
+            if text.startswith("```"):   # just in case the model wraps it in a code block
+                text = text.strip("`").removeprefix("json").strip()
+            return json.loads(text)
+    raise RuntimeError(f"Gemini unavailable after retries (last error {last_error})")
 
 
 # ---------------------------------------------------------------- fallback --
