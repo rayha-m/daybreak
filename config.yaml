@@ -1,0 +1,82 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Daybreak settings. Edit this file to make the brief yours.
+#
+#  Private stuff (bot token, calendar links, API keys) does NOT go here,
+#  because this file is public on GitHub. Those go in GitHub "Secrets" instead.
+#  See README.md, step 5.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Rayha
+timezone: America/Chicago
+
+# When to send. GitHub may run a few minutes late; that's normal.
+morning_time: "07:00"
+evening_time: "20:30"       # evening check-in; set evening_enabled: false to turn off
+evening_enabled: true
+
+# ── Calendars ────────────────────────────────────────────────────────────────
+# Each one points at a secret holding a private iCal (.ics) link.
+# If a secret isn't set, that calendar is just skipped. So Canvas is optional.
+calendars:
+  - name: Calendar          # shows up in "Today"
+    secret: GOOGLE_CALENDAR_ICS
+  - name: Canvas            # shows up in "Due soon"
+    secret: CANVAS_ICS
+
+due_lookahead_days: 3        # how far ahead to list Canvas due dates
+
+# ── Learning goals ───────────────────────────────────────────────────────────
+# description: tell the AI what you want out of this goal (it writes your
+#              daily assignment from it).
+# feeds:       RSS feeds to pull articles from. Any site with an RSS link works.
+goals:
+  - name: Finance
+    description: >
+      Understand markets, the economy, and how companies make money. Aiming for
+      finance/business internships, so connect news to concepts (rates,
+      valuation, earnings) and explain jargon.
+    feeds:
+      - { name: CNBC, url: "https://www.cnbc.com/id/100003114/device/rss/rss.html" }
+      - { name: MarketWatch, url: "https://feeds.content.dowjones.io/public/rss/mw_topstories" }
+
+  - name: Data Science
+    description: >
+      Get better at ML and data science in practice: Python, pandas, model
+      evaluation, and how real teams ship ML. Tasks should be hands-on (try
+      something in a notebook) when possible.
+    feeds:
+      - { name: Towards Data Science, url: "https://towardsdatascience.com/feed" }
+      - { name: KDnuggets, url: "https://www.kdnuggets.com/feed" }
+      - { name: Hacker News, url: "https://hnrss.org/frontpage?points=150" }
+
+  - name: Medicine
+    description: >
+      Learn about medicine and biotech from an outsider's view: how new
+      treatments work, how trials and the FDA work, and where data/AI is used
+      in healthcare.
+    feeds:
+      - { name: STAT News, url: "https://www.statnews.com/feed/" }
+      - { name: ScienceDaily, url: "https://www.sciencedaily.com/rss/health_medicine.xml" }
+
+# ── LeetCode ─────────────────────────────────────────────────────────────────
+leetcode:
+  enabled: true
+  list: blind75              # file in data/ (or a path to your own list)
+  include_premium: false     # skip problems that need LeetCode Premium
+
+# ── Projects ─────────────────────────────────────────────────────────────────
+# repo:  "owner/name" on GitHub. Daybreak reads recent commits + open issues.
+#        Tip: open GitHub issues for your to-dos and the brief picks them up.
+# notes: optional. What you're working on, for projects that aren't on GitHub
+#        or to give the AI more context. Separate to-dos with ";".
+github_user: rayha-m
+projects: []
+# Example:
+# projects:
+#   - name: Daybreak
+#     repo: rayha-m/daybreak
+#   - name: MovieML
+#     repo: rayha-m/movieml
+#     notes: finish feature engineering; try XGBoost baseline
+#
+# If you leave projects empty, Daybreak uses your 3 most recently updated repos.
