@@ -11,9 +11,15 @@
   "seen_articles": [
     "https://www.cnbc.com/2026/10/12/faa-saudi-arabia-flight-risks.html",
     "https://www.kdnuggets.com/the-rise-of-ai-software-clones-why-rea-and-artcraft-are-going-viral",
-    "https://www.sciencedaily.com/releases/2026/10/261011211604.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261011211604.htm",
+    "https://www.marketwatch.com/story/these-stocks-could-be-the-future-winners-and-losers-of-a-massive-shift-in-it-spending-bfc88c05?mod=mw_rss_topstories",
+    "https://www.kdnuggets.com/chatgpt-vs-claude-vs-gemini-for-data-science-work-heres-what-i-found",
+    "https://www.sciencedaily.com/releases/2026/10/261009025708.htm"
   ],
   "recent_assignments": [
+    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
+    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
     "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
