@@ -17,7 +17,10 @@
     "https://www.sciencedaily.com/releases/2026/10/261009025708.htm",
     "https://www.cnbc.com/2026/10/12/ilhan-omar-home-raided-dhs-immigration-investigation.html",
     "https://research.meta.ai/blog/muse-wonder",
-    "https://www.sciencedaily.com/releases/2026/10/261011211550.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261011211550.htm",
+    "https://www.cnbc.com/2026/10/12/beth-hammack-fed-inflation-policy.html",
+    "https://towardsdatascience.com/agentic-systems-a-practitioners-guide-to-6-advanced-architectural-patterns/",
+    "https://www.sciencedaily.com/releases/2026/10/261007042115.htm"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -28,7 +31,10 @@
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
     "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
-    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
+    "Finance: Review today's note on monetary policy and write a quick paragraph explaining how higher interest rates impact corporate valuations and consumer spending.",
+    "Data Science: Open a Jupyter notebook and sketch out a basic router-dispatcher pattern for multi-step agentic workflows as covered in the architectural guide.",
+    "Medicine: Summarize how the NEOPRISM-CRC clinical trial used neoadjuvant immunotherapy to shrink bowel tumors before surgery."
   ],
   "today": {
     "date": "2026-10-12",
