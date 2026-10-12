@@ -217,7 +217,8 @@ def _make_event(r: dict, start: datetime, end: datetime, all_day: bool, source: 
     if source.lower() == "canvas":
         m = _COURSE_RE.search(title)
         if m:
-            course = m.group(1)
+            # "CHEM-117:534,536,538" -> "CHEM-117"  (drop the list of section numbers)
+            course = m.group(1).split(":")[0].strip()
             title = _COURSE_RE.sub("", title)
     return Event(
         title=title,
