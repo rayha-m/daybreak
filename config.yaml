@@ -70,13 +70,26 @@ leetcode:
 # notes: optional. What you're working on, for projects that aren't on GitHub
 #        or to give the AI more context. Separate to-dos with ";".
 github_user: rayha-m
-projects: []
-# Example:
-# projects:
-#   - name: Daybreak
-#     repo: rayha-m/daybreak
-#   - name: MovieML
-#     repo: rayha-m/movieml
-#     notes: finish feature engineering; try XGBoost baseline
+projects:
+  - name: Daybreak
+    repo: rayha-m/daybreak
+    notes: >
+      This morning-brief bot (Stardance submission). Next up: SMS delivery via
+      Twilio, Apple Calendar support docs, weekly progress summary.
+  - name: Market Event Predictor
+    repo: rayha-m/market-event-predictor
+    notes: >
+      ML project predicting market-moving events from news/text, with
+      walk-forward backtesting. Goal: a resume project for finance and data
+      science recruiting. Focus areas: time-series, NLP, quant rigor.
+  - name: Hackpad
+    repo: rayha-m/hackpad
+    notes: >
+      Hack Club macropad PCB designed in KiCad (Seeed XIAO + switches),
+      following hackpad.hackclub.com/guide. Steps: schematic, PCB layout,
+      case, firmware, submit.
+  # - name: MovieML
+  #   repo: rayha-m/movieml          # change to the real repo name
+  #   notes: Predict movie success pre-release from TMDB data; next: cast/crew features
 #
-# If you leave projects empty, Daybreak uses your 3 most recently updated repos.
+# If you remove all projects, Daybreak uses your 3 most recently updated repos.
