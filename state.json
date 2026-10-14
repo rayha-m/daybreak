@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-13",
+  "last_morning": "2026-10-14",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -25,7 +25,10 @@
     "https://towardsdatascience.com/i-built-a-trap-for-ai-image-judges-they-walked-into-a-different-one/",
     "https://www.sciencedaily.com/releases/2026/10/261008102713.htm",
     "https://www.cnbc.com/2026/10/14/godzilla-el-nino-asia-inflation-philippines.html",
-    "https://www.statnews.com/2026/10/13/blackrock-humana-centerwell-deal-senior-care-medicare-clinics/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/13/blackrock-humana-centerwell-deal-senior-care-medicare-clinics/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/10/14/cpi-inflation-breakdown-september-2026.html",
+    "https://towardsdatascience.com/does-stacking-beat-your-best-model/",
+    "https://www.statnews.com/2026/10/14/the-startup-chasing-general-biological-intelligence-ai-prognosis/?utm_campaign=rss"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -45,10 +48,13 @@
     "Medicine: Note down in 2-3 sentences the core biological difference between surgical fat removal and injectable therapeutics that trigger targeted cell death.",
     "Finance: Review the impact of supply shocks on central bank policy from today's article and write a short paragraph explaining how agricultural or oil shocks complicate inflation targeting.",
     "Data Science: Open a Jupyter notebook and test out a basic MCMC sampling function or inspect how convergence diagnostics are computed using a standard Python library.",
-    "Medicine: Research and jot down 3 bullet points on how private equity acquisitions impact staffing and operations in outpatient primary care clinics like CenterWell."
+    "Medicine: Research and jot down 3 bullet points on how private equity acquisitions impact staffing and operations in outpatient primary care clinics like CenterWell.",
+    "Finance: Based on today's inflation report, write a short paragraph explaining how energy-driven cost-push inflation differs from demand-pull inflation and how it complicates central bank interest rate decisions.",
+    "Data Science: Open a Jupyter notebook and implement a quick stacking classifier using scikit-learn on a toy dataset to test whether combining models improves accuracy over your best individual base model.",
+    "Medicine: Jot down 3 bullet points summarizing what general biological intelligence means in the context of biotech startups and how AI models are beginning to simulate biological systems."
   ],
   "today": {
-    "date": "2026-10-13",
+    "date": "2026-10-14",
     "leetcode": "two-sum"
   }
 }
