@@ -141,7 +141,7 @@ def fallback(goals: list[dict], candidates: dict[str, list[Article]],
         elif p.notes:
             step = p.notes.split(";")[0].strip()
         else:
-            continue
+            step = "Spend 25 minutes on it: decide the next small step and finish it."
         steps.append({"name": p.name, "next_step": step})
     return {"articles": articles, "assignments": assignments, "projects": steps, "tip": ""}
 

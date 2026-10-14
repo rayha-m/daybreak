@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Daybreak: your whole morning in one message</title>
-<meta name="description" content="Daybreak reads your calendar, Canvas, the news, LeetCode and GitHub, then sends one morning message with everything you need for the day.">
+<meta name="description" content="Daybreak reads your calendar, school assignments, the news and your projects, then sends one morning message with everything you need for the day.">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,12 +64,15 @@
   legend { font-weight: 600; font-size: 15px; margin-bottom: 4px; padding: 0; }
   .hint { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
   label { display: block; font-size: 14px; font-weight: 500; margin: 0 0 6px; }
-  input {
+  input, textarea {
     width: 100%; font: inherit; font-size: 15px; color: var(--ink);
     background: var(--paper); border: 1px solid var(--line); border-radius: 7px; padding: 10px 12px;
   }
-  input:focus { outline: 2px solid var(--sun); outline-offset: 1px; border-color: transparent; }
-  input::placeholder { color: var(--muted); opacity: .8; }
+  textarea { resize: vertical; line-height: 1.45; }
+  [hidden] { display: none !important; }
+  .goal-actions { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  input:focus, textarea:focus { outline: 2px solid var(--sun); outline-offset: 1px; border-color: transparent; }
+  input::placeholder, textarea::placeholder { color: var(--muted); opacity: .8; }
   .row { display: grid; grid-template-columns: 150px 1fr; gap: 8px; margin-bottom: 8px; }
   @media (max-width: 520px) { .row { grid-template-columns: 1fr; gap: 6px; margin-bottom: 14px; } }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -146,7 +149,7 @@
   <section class="hero">
     <div class="rule"></div>
     <h1>Your whole morning, in one message.</h1>
-    <p>Daybreak checks your calendar, Canvas, the news, LeetCode and your GitHub projects, then sends one message with what matters today. Try it with your own details below. Nothing you enter is saved.</p>
+    <p>Daybreak checks your calendar, your school assignments, the news and your projects, then sends one message with what matters today. Try it with your own details below. Every field except one goal is optional, and nothing you enter is saved.</p>
   </section>
 
   <main>
@@ -154,7 +157,7 @@
       <fieldset>
         <div class="field">
           <label for="name">First name <span class="opt">(optional)</span></label>
-          <input id="name" name="name" placeholder="Rayha" maxlength="40">
+          <input id="name" name="name" placeholder="Alex" maxlength="40">
         </div>
       </fieldset>
 
@@ -162,15 +165,18 @@
         <legend>What do you want to learn about?</legend>
         <p class="hint">Each goal gets a fresh article and a 15–30 minute task. Describe what you want out of it so the tasks fit you.</p>
         <div id="goals"></div>
-        <button type="button" class="add" id="addGoal">+ Add another goal</button>
+        <div class="goal-actions">
+          <button type="button" class="add" id="addGoal">+ Add another goal</button>
+          <button type="button" class="add" id="example">Fill in an example</button>
+        </div>
       </fieldset>
 
       <fieldset>
         <legend>Your schedule <span class="opt">(optional)</span></legend>
         <p class="hint">Paste private calendar links to see your real day. They're read once to build this preview and never stored.</p>
         <div class="field">
-          <label for="cal">Calendar link (.ics)</label>
-          <input id="cal" placeholder="https://calendar.google.com/calendar/ical/…/basic.ics" inputmode="url">
+          <label for="cal">Calendar link <span class="opt">(Google, Apple or Outlook)</span></label>
+          <input id="cal" placeholder="https://…/calendar.ics" inputmode="url">
           <details>
             <summary>Where do I find this?</summary>
             <ul>
@@ -181,26 +187,39 @@
           </details>
         </div>
         <div class="field">
-          <label for="canvas">Canvas calendar feed</label>
-          <input id="canvas" placeholder="https://canvas.school.edu/feeds/calendars/user_….ics" inputmode="url">
+          <label for="assign">School assignments feed <span class="opt">(Canvas, Blackboard, Moodle, Brightspace…)</span></label>
+          <input id="assign" placeholder="https://your-school…/calendar.ics" inputmode="url">
           <details>
             <summary>Where do I find this?</summary>
-            <ul><li>In Canvas, open <b>Calendar</b>, then click <b>Calendar Feed</b> at the bottom right and copy the link.</li></ul>
+            <ul>
+              <li><b>Canvas:</b> Calendar → “Calendar Feed” (bottom right) → copy the link.</li>
+              <li><b>Blackboard:</b> Calendar → settings (gear) → “Share calendar” / external calendar link.</li>
+              <li><b>Moodle:</b> Calendar → “Export calendar” → choose events → “Get calendar URL”.</li>
+              <li><b>Brightspace (D2L):</b> Calendar → “Subscribe” → copy the feed link.</li>
+              <li>Not in school? Skip this one.</li>
+            </ul>
           </details>
         </div>
       </fieldset>
 
       <fieldset>
         <legend>Practice and projects <span class="opt">(optional)</span></legend>
-        <div class="two">
-          <div class="field">
-            <label for="gh">GitHub username</label>
-            <input id="gh" placeholder="octocat" maxlength="40">
-          </div>
-          <div class="field">
-            <label for="lc">Blind 75 problems done</label>
-            <input id="lc" type="number" min="0" max="75" value="0" inputmode="numeric">
-          </div>
+        <div class="field">
+          <label for="practice">Something to practice every day</label>
+          <input id="practice" placeholder="e.g. Spanish, piano, running, LeetCode" maxlength="60">
+          <p class="hint" style="margin:6px 0 0">You'll get one short exercise a day. Type “LeetCode” to get a coding-interview problem with progress tracking.</p>
+        </div>
+        <div class="field" id="lcField" hidden>
+          <label for="lc">Blind 75 problems you've already done</label>
+          <input id="lc" type="number" min="0" max="75" value="0" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="projects">Projects you're working on</label>
+          <textarea id="projects" rows="3" maxlength="800" placeholder="One per line, e.g.&#10;Portfolio website: finish the about page&#10;Half marathon: plan this week's runs"></textarea>
+        </div>
+        <div class="field">
+          <label for="gh">GitHub username <span class="opt">(adds your recent repos)</span></label>
+          <input id="gh" placeholder="octocat" maxlength="40">
         </div>
       </fieldset>
 
@@ -221,7 +240,7 @@
           <div class="av"><svg viewBox="96 158 320 194" aria-hidden="true"><path d="M96,318 A160,160 0 0 1 416,318 L380,318 A124,124 0 0 0 132,318 Z" fill="#1F2A44"/><path d="M174,318 A82,82 0 0 1 338,318 Z" fill="#E39B32"/><rect x="96" y="318" width="320" height="34" fill="#1F2A44"/></svg></div>
           <div><b>Daybreak</b><small>bot</small></div>
         </div>
-        <div id="out"><div class="empty"><strong>Your brief will show up here.</strong>Fill in what you like on the left (even just the goals) and press “Build my brief”.</div></div>
+        <div id="out"><div class="empty"><strong>Your brief will show up here.</strong>Add a goal or two (or press “Fill in an example”), then press “Build my brief”.</div></div>
       </div>
       <ul class="notes" id="notes"></ul>
     </aside>
@@ -231,8 +250,8 @@
     <h2>How the real thing works</h2>
     <div class="steps">
       <div><h3><span class="n">1</span>Runs on its own</h3><p>A scheduled GitHub Action runs every morning for free. No server, and your laptop can stay closed.</p></div>
-      <div><h3><span class="n">2</span>Reads what you already use</h3><p>Calendar and Canvas through private iCal links, news through RSS, your progress through GitHub and your replies.</p></div>
-      <div><h3><span class="n">3</span>Lands on your phone</h3><p>One Telegram message at 7 AM, plus a short evening check-in. Reply <code>/done</code> to log today's LeetCode and keep your streak.</p></div>
+      <div><h3><span class="n">2</span>Reads what you already use</h3><p>Your calendar and school assignments through private calendar links, news through RSS, and your projects through GitHub.</p></div>
+      <div><h3><span class="n">3</span>Lands on your phone</h3><p>One Telegram message at 7 AM, plus a short evening check-in if something is due or unfinished.</p></div>
     </div>
     <div class="cta">
       <p>Want this every morning? Set up your own copy in about 20 minutes.</p>
@@ -245,11 +264,18 @@
 
 <script>
 (function () {
-  var DEFAULT_GOALS = [
-    ["Finance", "Understand markets and how companies make money."],
-    ["Data Science", "Get better at ML in practice: Python, pandas, model evaluation."],
-    ["Medicine", "How new treatments, trials and healthcare AI work."]
+  var PLACEHOLDERS = [
+    ["e.g. Personal finance", "e.g. Learn how budgeting and investing work"],
+    ["e.g. Climate science", "e.g. Understand the news behind the headlines"],
+    ["e.g. Space", "What you want out of it"]
   ];
+  var EXAMPLE = {
+    goals: [["Personal finance", "Learn how budgeting, saving and investing actually work."],
+            ["Climate science", "Understand what's behind climate news and new energy tech."],
+            ["Psychology", "Learn practical ideas about habits, focus and motivation."]],
+    practice: "Spanish",
+    projects: "Portfolio website: finish the about page\nHalf marathon: plan this week's runs"
+  };
   var MAX = 4;
   var goalsEl = document.getElementById("goals");
   var addBtn = document.getElementById("addGoal");
@@ -258,21 +284,43 @@
     var row = document.createElement("div");
     row.className = "row";
     var n = goalsEl.children.length + 1;
+    var ph = PLACEHOLDERS[n - 1] || ["Topic", "What you want out of it"];
     row.innerHTML =
-      '<input aria-label="Goal ' + n + ' topic" placeholder="Topic" maxlength="40">' +
-      '<input aria-label="Goal ' + n + ' details" placeholder="What you want out of it" maxlength="400">';
+      '<input aria-label="Goal ' + n + ' topic" maxlength="40">' +
+      '<input aria-label="Goal ' + n + ' details" maxlength="400">';
+    row.children[0].placeholder = ph[0];
+    row.children[1].placeholder = ph[1];
     row.children[0].value = name || "";
     row.children[1].value = desc || "";
     goalsEl.appendChild(row);
     addBtn.hidden = goalsEl.children.length >= MAX;
   }
-  DEFAULT_GOALS.forEach(function (g) { addGoal(g[0], g[1]); });
+  PLACEHOLDERS.forEach(function () { addGoal("", ""); });
+
+  var practiceEl = document.getElementById("practice");
+  var lcField = document.getElementById("lcField");
+  function syncPractice() {
+    lcField.hidden = !/leet ?code|coding interview|blind 75|neetcode|dsa/i.test(practiceEl.value);
+  }
+  practiceEl.addEventListener("input", syncPractice);
+
+  document.getElementById("example").addEventListener("click", function () {
+    EXAMPLE.goals.forEach(function (g, i) {
+      if (!goalsEl.children[i]) addGoal("", "");
+      goalsEl.children[i].children[0].value = g[0];
+      goalsEl.children[i].children[1].value = g[1];
+    });
+    if (!val("name")) document.getElementById("name").value = "Alex";
+    practiceEl.value = EXAMPLE.practice;
+    document.getElementById("projects").value = EXAMPLE.projects;
+    syncPractice();
+  });
   addBtn.addEventListener("click", function () { addGoal("", ""); goalsEl.lastChild.firstChild.focus(); });
 
   var out = document.getElementById("out");
   var notesEl = document.getElementById("notes");
   var go = document.getElementById("go");
-  var steps = ["Reading your calendars…", "Finding today's articles…", "Checking your projects…", "Planning your day…"];
+  var steps = ["Reading your calendars…", "Finding today's articles…", "Looking at your projects…", "Planning your day…"];
 
   function val(id) { return document.getElementById(id).value.trim(); }
 
@@ -281,11 +329,12 @@
     var goals = Array.prototype.map.call(goalsEl.children, function (r) {
       return { name: r.children[0].value.trim(), description: r.children[1].value.trim() };
     }).filter(function (g) { return g.name; });
-    if (!goals.length) { out.innerHTML = '<div class="error">Add at least one goal topic.</div>'; return; }
+    if (!goals.length) { out.innerHTML = '<div class="error">Add at least one goal topic, or press “Fill in an example”.</div>'; return; }
 
     var payload = {
-      name: val("name"), goals: goals, calendar_url: val("cal"), canvas_url: val("canvas"),
-      github_user: val("gh"), leetcode_done: val("lc"), gemini_key: val("key"),
+      name: val("name"), goals: goals, calendar_url: val("cal"), assignments_url: val("assign"),
+      practice: val("practice"), leetcode_done: val("lc"), projects: document.getElementById("projects").value,
+      github_user: val("gh"), gemini_key: val("key"),
       timezone: (Intl.DateTimeFormat().resolvedOptions().timeZone || "America/Chicago")
     };
 

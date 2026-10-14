@@ -35,8 +35,8 @@ def gh(path, token, params=None):
 
 FORM = {"name": "Sam", "timezone": "America/Chicago",
         "goals": [{"name": "Economics", "description": "macro"}, {"name": "", "description": "skip"}],
-        "calendar_url": "https://cal.example/google.ics", "canvas_url": "https://cal.example/canvas.ics",
-        "github_user": "someone", "leetcode_done": "3"}
+        "calendar_url": "https://cal.example/google.ics", "assignments_url": "https://cal.example/canvas.ics",
+        "github_user": "someone", "practice": "LeetCode", "leetcode_done": "3"}
 
 
 class TestWeb(unittest.TestCase):
@@ -48,6 +48,20 @@ class TestWeb(unittest.TestCase):
                   "Progress: 3/69", "proj"]:
             self.assertIn(s, h)
         self.assertFalse(out["ai"])
+
+    def test_general_practice_and_typed_projects(self):
+        form = dict(FORM, practice="Spanish", github_user="",
+                    projects="Portfolio site: finish the about page\nMarathon training")
+        h = web.build(form, fetch=fake_fetch, now=NOW)["html"]
+        self.assertNotIn("LeetCode", h)
+        self.assertIn("<b>Spanish:</b>", h)                      # daily practice task
+        self.assertIn("<b>Portfolio site:</b> finish the about page", h)
+        self.assertIn("<b>Marathon training:</b> Spend 25 minutes on it", h)
+
+    def test_old_canvas_key_still_works(self):
+        form = dict(FORM, github_user="")
+        form["canvas_url"] = form.pop("assignments_url")
+        self.assertIn("Quiz 4", web.build(form, fetch=fake_fetch, now=NOW)["html"])
 
     def test_needs_a_goal(self):
         with self.assertRaises(web.BadInput):

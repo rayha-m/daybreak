@@ -28,6 +28,15 @@ MAX_BYTES = 3_000_000          # don't download anything bigger than ~3 MB
 MAX_GOALS = 4
 
 
+LEETCODE_WORDS = ("leetcode", "leet code", "coding interview", "blind 75", "neetcode", "dsa")
+PRACTICE_TASKS = [
+    "Spend 20 focused minutes on one small skill and repeat it until it feels easier.",
+    "Review what you practiced last time for 5 minutes, then try something slightly harder for 15.",
+    "Set a 25-minute timer and work on the part you usually avoid.",
+    "Practice for 15 minutes, then write one sentence about what improved.",
+]
+
+
 class BadInput(ValueError):
     """Something the visitor typed that we can't use (shown to them as-is)."""
 
@@ -103,7 +112,8 @@ def _tidy_google_titles(articles: dict[str, list]) -> None:
 def build(form: dict, fetch=safe_get, gh_getter=None, now: datetime | None = None,
           log=lambda m: None) -> dict:
     """form keys: name, timezone, goals [{name, description}], calendar_url,
-    canvas_url, github_user, leetcode_done, gemini_key. Returns {html, notes}."""
+    assignments_url, practice, leetcode_done, projects, github_user, gemini_key.
+    Returns {html, notes, ai}."""
     try:
         tz = ZoneInfo(form.get("timezone") or "America/Chicago")
     except Exception:
@@ -123,8 +133,9 @@ def build(form: dict, fetch=safe_get, gh_getter=None, now: datetime | None = Non
 
     # Download every feed and calendar at the same time (much faster than one by one).
     urls = {f["url"] for g in goals for f in g["feeds"]}
-    cal_links = [(n, (form.get(k) or "").strip()) for n, k in
-                 (("Calendar", "calendar_url"), ("Canvas", "canvas_url"))]
+    assignments_url = form.get("assignments_url") or form.get("canvas_url")
+    cal_links = [("Calendar", (form.get("calendar_url") or "").strip()),
+                 ("Assignments", (assignments_url or "").strip())]
     urls |= {u for _, u in cal_links if u}
     results: dict[str, str | Exception] = {}
 
@@ -151,19 +162,35 @@ def build(form: dict, fetch=safe_get, gh_getter=None, now: datetime | None = Non
         if not url:
             continue
         try:
-            items = ical.parse_ics(cached(url), tz, day_start, day_start + timedelta(days=lookahead + 1), name)
+            # "Canvas" mode also tidies Canvas-style "[COURSE-101]" tags; harmless for other schools' feeds.
+            items = ical.parse_ics(cached(url), tz, day_start, day_start + timedelta(days=lookahead + 1),
+                                   "Canvas" if name == "Assignments" else name)
         except BadInput as exc:
             notes.append(f"{name}: {exc}")
             continue
         except Exception:
             notes.append(f"{name}: couldn't read that link. Make sure it's the iCal/feed link (ends in .ics).")
             continue
-        if name == "Canvas":
+        if name == "Assignments":
             due += items
         else:
             events += [e for e in items if e.start < day_end and (e.end > day_start or e.start >= day_start)]
     due = sorted([d for d in due if d.start >= now - timedelta(hours=1) or
                   (d.all_day and d.start.date() >= today)], key=lambda e: e.start)
+
+    # Daily practice. Coding-interview practice uses the Blind 75 tracker;
+    # anything else (Spanish, piano, running…) gets a short daily exercise.
+    practice = (form.get("practice") or "").strip()[:60]
+    use_leetcode = any(w in practice.lower() for w in LEETCODE_WORDS)
+    practice_goal = None
+    if practice and not use_leetcode:
+        practice_goal = {
+            "name": practice,
+            "description": f"Daily practice of {practice}. No article needed: give one concrete, "
+                           "15-30 minute exercise that builds on basics and gets a bit harder over time.",
+            "feeds": [],
+            "tasks": PRACTICE_TASKS,
+        }
 
     # News
     candidates = news.collect(goals, set(), now, fetcher=cached, log=log, per_goal=10)
@@ -172,8 +199,14 @@ def build(form: dict, fetch=safe_get, gh_getter=None, now: datetime | None = Non
         if not candidates.get(g["name"]):
             notes.append(f"No recent articles found for “{g['name']}”. Try a broader topic.")
 
-    # GitHub (optional)
+    # Projects: whatever they typed, plus recent GitHub repos if they gave a username.
     projects = []
+    for line in (form.get("projects") or "").splitlines()[:5]:
+        line = line.strip(" -•\t")
+        if not line:
+            continue
+        name, _, notes_text = line.partition(":")
+        projects.append(github.ProjectStatus(name=name.strip()[:40], notes=notes_text.strip()[:200]))
     user = (form.get("github_user") or "").strip().lstrip("@")
     if user:
         getter = gh_getter or github._get
@@ -181,7 +214,7 @@ def build(form: dict, fetch=safe_get, gh_getter=None, now: datetime | None = Non
             repos = [r["full_name"] for r in getter(f"/users/{quote_plus(user)}/repos", None,
                                                     {"sort": "pushed", "per_page": 20})
                      if not r.get("fork") and not r.get("archived")][:3]
-            projects = [github.status({"name": r.split("/")[-1], "repo": r}, None, getter=getter)
+            projects += [github.status({"name": r.split("/")[-1], "repo": r}, None, getter=getter)
                         for r in repos]
             if not repos:
                 notes.append(f"GitHub user {user} has no public repos to look at.")
@@ -190,22 +223,26 @@ def build(form: dict, fetch=safe_get, gh_getter=None, now: datetime | None = Non
 
     # AI plan (only with the visitor's own key)
     key = (form.get("gemini_key") or "").strip() or None
-    plan = ai.plan(goals, candidates, projects, brief.schedule_summary(events, due), [], today,
+    all_goals = goals + ([practice_goal] if practice_goal else [])
+    plan = ai.plan(all_goals, candidates, projects, brief.schedule_summary(events, due), [], today,
                    api_key=key, log=log, quick=True)
     if key and not plan.get("ai"):
         notes.append("Gemini didn't respond (busy or invalid key), so this uses the built-in assignments.")
 
-    # LeetCode: start from however many they've already done
-    problems = leetcode.load_list()
-    try:
-        done_count = max(0, min(int(form.get("leetcode_done") or 0), len(problems)))
-    except ValueError:
-        done_count = 0
-    lc_state = {"done": [p["slug"] for p in problems[:done_count]], "skipped": []}
-    problem = leetcode.current(problems, lc_state)
+    # LeetCode tracker (only if their practice is coding interviews)
+    problems, lc_state, problem = [], {"done": [], "skipped": []}, None
+    if use_leetcode:
+        problems = leetcode.load_list()
+        try:
+            done_count = max(0, min(int(form.get("leetcode_done") or 0), len(problems)))
+        except ValueError:
+            done_count = 0
+        lc_state = {"done": [p["slug"] for p in problems[:done_count]], "skipped": []}
+        problem = leetcode.current(problems, lc_state)
 
     html = brief.morning(
         (form.get("name") or "").strip()[:40], today, now, events, due, plan, problem,
-        leetcode.url(problem) if problem else "", leetcode.progress(problems, lc_state),
+        leetcode.url(problem) if problem else "",
+        leetcode.progress(problems, lc_state) if problems else (0, 0),
         0, [], lookahead)
     return {"html": html, "notes": notes, "ai": bool(plan.get("ai"))}
