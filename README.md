@@ -24,9 +24,9 @@ always the first thing to get dropped.
 
 Daybreak does that whole routine for you and sends the result to your phone:
 
-<img width="300" alt="IMG_0949" src="https://github.com/user-attachments/assets/fe66cb40-d6b5-433a-9ef6-e9d2b27eea34" />
-<img width="300" alt="IMG_0948" src="https://github.com/user-attachments/assets/896c4ebc-b80a-493c-8147-c5a9e98e9438" />
 <img width="300" alt="IMG_0947" src="https://github.com/user-attachments/assets/ce4d0dfa-6ed2-431b-b868-bb95d6e7e3d6" />
+<img width="300" alt="IMG_0948" src="https://github.com/user-attachments/assets/896c4ebc-b80a-493c-8147-c5a9e98e9438" />
+<img width="300" alt="IMG_0949" src="https://github.com/user-attachments/assets/fe66cb40-d6b5-433a-9ef6-e9d2b27eea34" />
 
 ## The 3 big quality-of-life improvements
 
