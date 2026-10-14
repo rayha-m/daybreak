@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daybreak: your whole morning in one message</title>
+<meta name="description" content="Daybreak reads your calendar, Canvas, the news, LeetCode and GitHub, then sends one morning message with everything you need for the day.">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4EEE3;
+    --paper-2: #EDE5D6;
+    --card: #FFFDF9;
+    --ink: #1F2A44;
+    --ink-2: #3A4560;
+    --muted: #6A7183;
+    --line: #DDD3C2;
+    --sun: #E39B32;
+    --sun-ink: #8A5A14;
+    --bubble: #FFFFFF;
+    --error: #A3402C;
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #151B2C; --paper-2: #1B2236; --card: #1E2639; --ink: #F1EADC; --ink-2: #D6CFC2;
+      --muted: #9AA0AF; --line: #2E3850; --sun: #E9A847; --sun-ink: #F0C27A; --bubble: #232C42;
+      --error: #E58B76;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font: 16px/1.55 Inter, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  header { padding: 28px 0 8px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand svg { width: 44px; height: auto; }
+  .brand span { font-family: "Source Serif 4", Charter, Georgia, serif; font-weight: 700; font-size: 26px; letter-spacing: -0.5px; }
+  .gh { font-size: 14px; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .gh:hover { color: var(--ink); border-color: var(--ink); }
+
+  .hero { padding: 36px 0 28px; max-width: 680px; }
+  h1 {
+    font-family: "Source Serif 4", Charter, Georgia, serif; font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px); line-height: 1.08; letter-spacing: -1px; margin: 0 0 14px;
+  }
+  .hero p { color: var(--ink-2); font-size: 18px; margin: 0; }
+  .rule { width: 48px; height: 4px; background: var(--sun); margin: 0 0 18px; }
+
+  main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 40px; padding-bottom: 56px; align-items: start; }
+  @media (max-width: 880px) { main { grid-template-columns: 1fr; gap: 28px; } }
+
+  form { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  fieldset { border: 0; padding: 0; margin: 0 0 22px; }
+  legend { font-weight: 600; font-size: 15px; margin-bottom: 4px; padding: 0; }
+  .hint { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
+  label { display: block; font-size: 14px; font-weight: 500; margin: 0 0 6px; }
+  input {
+    width: 100%; font: inherit; font-size: 15px; color: var(--ink);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 7px; padding: 10px 12px;
+  }
+  input:focus { outline: 2px solid var(--sun); outline-offset: 1px; border-color: transparent; }
+  input::placeholder { color: var(--muted); opacity: .8; }
+  .row { display: grid; grid-template-columns: 150px 1fr; gap: 8px; margin-bottom: 8px; }
+  @media (max-width: 520px) { .row { grid-template-columns: 1fr; gap: 6px; margin-bottom: 14px; } }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
+  .field { margin-bottom: 14px; }
+  .opt { color: var(--muted); font-weight: 400; }
+  details { font-size: 13.5px; color: var(--ink-2); margin-top: 6px; }
+  details summary { cursor: pointer; color: var(--muted); }
+  details ul { margin: 8px 0 0; padding-left: 18px; }
+  details li { margin-bottom: 4px; }
+  .add { background: none; border: 0; color: var(--sun-ink); font: inherit; font-size: 14px; font-weight: 500; padding: 4px 0; cursor: pointer; }
+  .add[hidden] { display: none; }
+
+  .go {
+    width: 100%; font: inherit; font-weight: 600; font-size: 16px; color: #FFFDF9;
+    background: var(--ink); border: 0; border-radius: 8px; padding: 13px 18px; cursor: pointer;
+  }
+  @media (prefers-color-scheme: dark) { .go { color: #151B2C; } }
+  .go:hover { filter: brightness(1.12); }
+  .go:disabled { opacity: .6; cursor: progress; }
+  .privacy { font-size: 13px; color: var(--muted); margin: 12px 0 0; text-align: center; }
+
+  .preview { position: sticky; top: 20px; }
+  .preview h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); font-weight: 600; margin: 0 0 10px; }
+  .phone {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 22px;
+    padding: 14px; min-height: 420px;
+  }
+  .chat-head { display: flex; align-items: center; gap: 10px; padding: 4px 6px 12px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+  .chat-head .av { width: 34px; height: 34px; border-radius: 50%; background: var(--paper); display: grid; place-items: center; border: 1px solid var(--line); }
+  .chat-head .av svg { width: 22px; }
+  .chat-head b { font-size: 15px; display: block; line-height: 1.2; }
+  .chat-head small { color: var(--muted); font-size: 12px; }
+  .bubble {
+    background: var(--bubble); border-radius: 4px 14px 14px 14px; padding: 12px 14px;
+    font-size: 14.5px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere;
+    box-shadow: 0 1px 0 rgba(31,42,68,.06);
+  }
+  .bubble a { color: #2A6CB0; text-decoration: none; }
+  @media (prefers-color-scheme: dark) { .bubble a { color: #8DB8E8; } }
+  .bubble i { color: var(--ink-2); }
+  .empty { color: var(--muted); font-size: 14.5px; padding: 40px 18px; text-align: center; }
+  .empty strong { color: var(--ink); display: block; margin-bottom: 6px; font-weight: 600; }
+  .status { font-size: 14px; color: var(--muted); padding: 40px 18px; text-align: center; }
+  .notes { margin: 12px 4px 0; padding: 0; list-style: none; font-size: 13px; color: var(--muted); }
+  .notes li { margin-bottom: 4px; }
+  .notes li::before { content: "– "; }
+  .error { color: var(--error); font-size: 14px; padding: 20px 10px; text-align: center; }
+
+  .how { border-top: 1px solid var(--line); padding: 40px 0 10px; }
+  .how h2 { font-family: "Source Serif 4", Charter, Georgia, serif; font-size: 26px; margin: 0 0 18px; letter-spacing: -.4px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  @media (max-width: 760px) { .steps { grid-template-columns: 1fr; gap: 18px; } }
+  .steps h3 { font-size: 16px; margin: 0 0 6px; }
+  .steps p { margin: 0; color: var(--ink-2); font-size: 15px; }
+  .steps .n { font-family: "Source Serif 4", Georgia, serif; color: var(--sun-ink); font-weight: 700; margin-right: 6px; }
+  .cta { margin: 34px 0 0; padding: 22px 24px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .cta p { margin: 0; color: var(--ink-2); }
+  .cta a.btn { text-decoration: none; font-weight: 600; border: 1.5px solid var(--ink); border-radius: 8px; padding: 10px 16px; white-space: nowrap; }
+  .cta a.btn:hover { background: var(--ink); color: var(--paper); }
+  footer { padding: 34px 0 40px; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./" aria-label="Daybreak home">
+      <svg viewBox="96 158 320 194" aria-hidden="true"><path d="M96,318 A160,160 0 0 1 416,318 L380,318 A124,124 0 0 0 132,318 Z" fill="currentColor"/><path d="M174,318 A82,82 0 0 1 338,318 Z" fill="#E39B32"/><rect x="96" y="318" width="320" height="34" fill="currentColor"/></svg>
+      <span>daybreak</span>
+    </a>
+    <a class="gh" href="https://github.com/rayha-m/daybreak">Source on GitHub</a>
+  </header>
+
+  <section class="hero">
+    <div class="rule"></div>
+    <h1>Your whole morning, in one message.</h1>
+    <p>Daybreak checks your calendar, Canvas, the news, LeetCode and your GitHub projects, then sends one message with what matters today. Try it with your own details below. Nothing you enter is saved.</p>
+  </section>
+
+  <main>
+    <form id="f" autocomplete="off">
+      <fieldset>
+        <div class="field">
+          <label for="name">First name <span class="opt">(optional)</span></label>
+          <input id="name" name="name" placeholder="Rayha" maxlength="40">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>What do you want to learn about?</legend>
+        <p class="hint">Each goal gets a fresh article and a 15–30 minute task. Describe what you want out of it so the tasks fit you.</p>
+        <div id="goals"></div>
+        <button type="button" class="add" id="addGoal">+ Add another goal</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your schedule <span class="opt">(optional)</span></legend>
+        <p class="hint">Paste private calendar links to see your real day. They're read once to build this preview and never stored.</p>
+        <div class="field">
+          <label for="cal">Calendar link (.ics)</label>
+          <input id="cal" placeholder="https://calendar.google.com/calendar/ical/…/basic.ics" inputmode="url">
+          <details>
+            <summary>Where do I find this?</summary>
+            <ul>
+              <li><b>Google:</b> Settings → your calendar → Integrate calendar → “Secret address in iCal format”.</li>
+              <li><b>Apple (iCloud):</b> Calendar → ⓘ next to the calendar → turn on Public Calendar → Share Link.</li>
+              <li><b>Outlook:</b> Settings → Calendar → Shared calendars → Publish → copy the ICS link.</li>
+            </ul>
+          </details>
+        </div>
+        <div class="field">
+          <label for="canvas">Canvas calendar feed</label>
+          <input id="canvas" placeholder="https://canvas.school.edu/feeds/calendars/user_….ics" inputmode="url">
+          <details>
+            <summary>Where do I find this?</summary>
+            <ul><li>In Canvas, open <b>Calendar</b>, then click <b>Calendar Feed</b> at the bottom right and copy the link.</li></ul>
+          </details>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Practice and projects <span class="opt">(optional)</span></legend>
+        <div class="two">
+          <div class="field">
+            <label for="gh">GitHub username</label>
+            <input id="gh" placeholder="octocat" maxlength="40">
+          </div>
+          <div class="field">
+            <label for="lc">Blind 75 problems done</label>
+            <input id="lc" type="number" min="0" max="75" value="0" inputmode="numeric">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Smarter picks with AI <span class="opt">(optional)</span></legend>
+        <p class="hint">Add your own free Gemini API key from <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> and Gemini will choose the best article for each goal and write tasks around it. Without a key, you get the newest article and a simpler task. Your key is used for this one request only.</p>
+        <input id="key" type="password" placeholder="AIza…" spellcheck="false">
+      </fieldset>
+
+      <button class="go" id="go" type="submit">Build my brief</button>
+      <p class="privacy">Takes about 5–20 seconds. Nothing is stored or logged.</p>
+    </form>
+
+    <aside class="preview" aria-live="polite">
+      <h2>Preview</h2>
+      <div class="phone">
+        <div class="chat-head">
+          <div class="av"><svg viewBox="96 158 320 194" aria-hidden="true"><path d="M96,318 A160,160 0 0 1 416,318 L380,318 A124,124 0 0 0 132,318 Z" fill="#1F2A44"/><path d="M174,318 A82,82 0 0 1 338,318 Z" fill="#E39B32"/><rect x="96" y="318" width="320" height="34" fill="#1F2A44"/></svg></div>
+          <div><b>Daybreak</b><small>bot</small></div>
+        </div>
+        <div id="out"><div class="empty"><strong>Your brief will show up here.</strong>Fill in what you like on the left (even just the goals) and press “Build my brief”.</div></div>
+      </div>
+      <ul class="notes" id="notes"></ul>
+    </aside>
+  </main>
+
+  <section class="how">
+    <h2>How the real thing works</h2>
+    <div class="steps">
+      <div><h3><span class="n">1</span>Runs on its own</h3><p>A scheduled GitHub Action runs every morning for free. No server, and your laptop can stay closed.</p></div>
+      <div><h3><span class="n">2</span>Reads what you already use</h3><p>Calendar and Canvas through private iCal links, news through RSS, your progress through GitHub and your replies.</p></div>
+      <div><h3><span class="n">3</span>Lands on your phone</h3><p>One Telegram message at 7 AM, plus a short evening check-in. Reply <code>/done</code> to log today's LeetCode and keep your streak.</p></div>
+    </div>
+    <div class="cta">
+      <p>Want this every morning? Set up your own copy in about 20 minutes.</p>
+      <a class="btn" href="https://github.com/rayha-m/daybreak#setup-about-20-minutes">Setup guide</a>
+    </div>
+  </section>
+
+  <footer>Built by Rayha Manam.</footer>
+</div>
+
+<script>
+(function () {
+  var DEFAULT_GOALS = [
+    ["Finance", "Understand markets and how companies make money."],
+    ["Data Science", "Get better at ML in practice: Python, pandas, model evaluation."],
+    ["Medicine", "How new treatments, trials and healthcare AI work."]
+  ];
+  var MAX = 4;
+  var goalsEl = document.getElementById("goals");
+  var addBtn = document.getElementById("addGoal");
+
+  function addGoal(name, desc) {
+    var row = document.createElement("div");
+    row.className = "row";
+    var n = goalsEl.children.length + 1;
+    row.innerHTML =
+      '<input aria-label="Goal ' + n + ' topic" placeholder="Topic" maxlength="40">' +
+      '<input aria-label="Goal ' + n + ' details" placeholder="What you want out of it" maxlength="400">';
+    row.children[0].value = name || "";
+    row.children[1].value = desc || "";
+    goalsEl.appendChild(row);
+    addBtn.hidden = goalsEl.children.length >= MAX;
+  }
+  DEFAULT_GOALS.forEach(function (g) { addGoal(g[0], g[1]); });
+  addBtn.addEventListener("click", function () { addGoal("", ""); goalsEl.lastChild.firstChild.focus(); });
+
+  var out = document.getElementById("out");
+  var notesEl = document.getElementById("notes");
+  var go = document.getElementById("go");
+  var steps = ["Reading your calendars…", "Finding today's articles…", "Checking your projects…", "Planning your day…"];
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  document.getElementById("f").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var goals = Array.prototype.map.call(goalsEl.children, function (r) {
+      return { name: r.children[0].value.trim(), description: r.children[1].value.trim() };
+    }).filter(function (g) { return g.name; });
+    if (!goals.length) { out.innerHTML = '<div class="error">Add at least one goal topic.</div>'; return; }
+
+    var payload = {
+      name: val("name"), goals: goals, calendar_url: val("cal"), canvas_url: val("canvas"),
+      github_user: val("gh"), leetcode_done: val("lc"), gemini_key: val("key"),
+      timezone: (Intl.DateTimeFormat().resolvedOptions().timeZone || "America/Chicago")
+    };
+
+    go.disabled = true; go.textContent = "Building…"; notesEl.innerHTML = "";
+    var i = 0;
+    out.innerHTML = '<div class="status">' + steps[0] + '</div>';
+    var tick = setInterval(function () {
+      i = Math.min(i + 1, steps.length - 1);
+      var s = out.querySelector(".status"); if (s) s.textContent = steps[i];
+    }, 2500);
+
+    fetch("/api/brief", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+      .then(function (r) { return r.json().catch(function () { return { error: "The server didn't respond properly. Try again." }; }); })
+      .then(function (data) {
+        if (data.error) { out.innerHTML = '<div class="error"></div>'; out.firstChild.textContent = data.error; return; }
+        // The brief is built server-side with every piece of text escaped.
+        out.innerHTML = '<div class="bubble">' + data.html + '</div>';
+        out.querySelectorAll("a").forEach(function (a) { a.target = "_blank"; a.rel = "noopener"; });
+        (data.notes || []).forEach(function (n) {
+          var li = document.createElement("li"); li.textContent = n; notesEl.appendChild(li);
+        });
+        if (window.matchMedia("(max-width: 880px)").matches) out.scrollIntoView({ behavior: "smooth", block: "start" });
+      })
+      .catch(function () { out.innerHTML = '<div class="error">Couldn\'t reach the server. Check your connection and try again.</div>'; })
+      .finally(function () { clearInterval(tick); go.disabled = false; go.textContent = "Build my brief"; });
+  });
+})();
+</script>
+</body>
+</html>

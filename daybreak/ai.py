@@ -17,7 +17,8 @@ from .news import Article
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 DEFAULT_MODEL = "gemini-flash-latest"        # alias Google points at its newest Flash model
-BACKUP_MODEL = "gemini-flash-lite-latest"    # lighter model, used if the main one is overloaded
+# Tried in order if the main model is overloaded or retired. All are on the free tier.
+BACKUP_MODELS = ["gemini-3.5-flash", "gemini-flash-lite-latest"]
 
 
 def build_prompt(goals: list[dict], candidates: dict[str, list[Article]],
@@ -71,19 +72,19 @@ def build_prompt(goals: list[dict], candidates: dict[str, list[Article]],
 
 
 def call_gemini(prompt: str, api_key: str, model: str | None = None, timeout: int = 60,
-                sleep=None, log=print) -> dict:
+                sleep=None, log=print, waits=(0, 8, 20)) -> dict:
     """Asks Gemini, retrying when Google's servers are busy.
 
     429 = too many requests, 500/503 = Google overloaded. Those usually clear up
-    within seconds, so we wait and try again, then try a lighter backup model.
+    within seconds, so we wait and try again, then try the backup models.
     """
     import time
     import requests
     sleep = sleep or time.sleep
-    models = [model or os.environ.get("GEMINI_MODEL") or DEFAULT_MODEL, BACKUP_MODEL]
+    models = [model or os.environ.get("GEMINI_MODEL") or DEFAULT_MODEL, *BACKUP_MODELS]
     last_error = None
     for m in dict.fromkeys(models):            # removes duplicates, keeps order
-        for attempt, wait in enumerate((0, 10, 30)):
+        for attempt, wait in enumerate(waits):
             if wait:
                 log(f"  … Gemini busy ({last_error}), retrying {m} in {wait}s")
                 sleep(wait)
@@ -146,13 +147,15 @@ def fallback(goals: list[dict], candidates: dict[str, list[Article]],
 
 
 def plan(goals, candidates, projects, day_summary, recent_assignments, today,
-         api_key: str | None, log=print) -> dict:
+         api_key: str | None, log=print, quick: bool = False) -> dict:
     """Returns {'articles': [{'article': Article, 'why'}], 'assignments', 'projects', 'tip', 'ai': bool}"""
     if api_key:
         prompt, by_id = build_prompt(goals, candidates, projects, day_summary,
                                      recent_assignments, today)
         try:
-            raw = call_gemini(prompt, api_key)
+            # quick=True (the website) tries each model once so visitors aren't kept waiting.
+            raw = call_gemini(prompt, api_key, log=log,
+                              **({"waits": (0,), "timeout": 25} if quick else {}))
             arts = [{"article": by_id[a["id"]], "why": a.get("why", "")}
                     for a in raw.get("articles", []) if a.get("id") in by_id]
             result = {
