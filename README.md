@@ -100,7 +100,7 @@ flowchart LR
 | Piece | What I used | Why |
 |---|---|---|
 | Runs every day | **GitHub Actions** (scheduled workflow) | Free, no server to maintain, laptop can be off |
-| Calendar + Canvas | **iCal feed links** | Both offer one. Read-only and no OAuth sign-in, so it's simpler and safer than full APIs |
+| Calendar + Canvas | **iCal feed links** | Google, Apple, Outlook, and Canvas all export one, so it works whatever calendar you use. Read-only with no OAuth sign-in, so it's simpler and safer than full APIs |
 | News | **RSS feeds** | Free and standard; works with almost any site, no API keys |
 | Picking + writing | **Gemini API** (free tier) | One request per day; falls back to a non-AI brief if unavailable |
 | Delivery | **Telegram bot** | Free, instant setup, supports links and formatting, and you can reply with commands |
@@ -139,19 +139,39 @@ outage only removes that one piece; the rest of the brief still arrives.
 
    *(Or run `python main.py setup` on your laptop with the token in `.env`.)*
 
-### 4. Get your private calendar links
+### 4. Get your private calendar link(s)
+Daybreak reads **iCal links**, a standard format that every major calendar app can
+export. So it works with Google, Apple, and Outlook, with no sign-in setup and
+read-only access. Pick whichever calendar you actually use:
+
 **Google Calendar** (on a computer):
 1. Open [calendar.google.com](https://calendar.google.com) → ⚙️ gear icon → **Settings**.
 2. On the left under *Settings for my calendars*, click your calendar.
 3. Scroll to **Integrate calendar** → copy **Secret address in iCal format**.
 
+**Apple Calendar (iCloud)**:
+- *iPhone:* Calendar app → **Calendars** → tap **ⓘ** next to your calendar →
+  turn on **Public Calendar** → **Share Link** → **Copy**.
+- *Mac:* Calendar app → right-click your calendar → **Share Calendar…** → check
+  **Public Calendar** → copy the `webcal://` link.
+- The calendar must be under **iCloud** (not "On My iPhone/Mac") to be shareable.
+
+**Outlook / Microsoft 365** (including many school accounts):
+1. Open [outlook.com](https://outlook.com) or Outlook on the web → ⚙️ **Settings** → **Calendar** → **Shared calendars**.
+2. Under **Publish a calendar**, choose your calendar and **Can view all details** → **Publish**.
+3. Copy the **ICS** link.
+   *(Some schools turn publishing off. If so, use a personal calendar.)*
+
 **Canvas** (optional):
 1. Open Canvas → **Calendar** in the left menu.
 2. At the bottom of the right sidebar, click **Calendar Feed** and copy the link.
 
+Put your calendar link in the `GOOGLE_CALENDAR_ICS` secret. Despite the name, it
+accepts a link from any of these apps.
+
 > 🔒 These links let anyone who has them *read* your calendar, so they go in
-> GitHub Secrets (next step), never in `config.yaml`. If one ever leaks, Google
-> has a "Reset" button next to the secret address.
+> GitHub Secrets (next step), never in `config.yaml`. If one leaks, turn sharing
+> off and on again (or press "Reset" in Google) to get a new link.
 
 ### 5. Get a Gemini API key (optional but recommended)
 1. Go to [aistudio.google.com](https://aistudio.google.com) and sign in.
