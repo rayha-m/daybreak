@@ -24,39 +24,9 @@ always the first thing to get dropped.
 
 Daybreak does that whole routine for you and sends the result to your phone:
 
-```
-☀️ Good morning, Rayha!  Monday, October 12
-
-📅 Today
-• All day  Career Fair (Engineering)
-• 9:10 AM–10:00 AM  CHEM 107 Lecture · Heldenfels Hall 100
-• 3:30 PM–5:00 PM  ADSC project team meeting · Zoom
-
-📚 Due in the next 3 days
-• ⚠️ Today 11:59 PM — Quiz 4: Stoichiometry (CHEM-107-501)
-• Wed Oct 14 — Lab Report 3 (ENGR-102-520)
-
-📰 Morning reads
-• [Finance] Fed signals pause as inflation cools — CNBC
-   Explains why rate decisions move stock and bond prices.
-• [Data Science] A gentle intro to gradient boosting — Towards Data Science
-• [Medicine] How GLP-1 drugs work — STAT News
-
-📝 Today's learning assignments
-• Finance: Explain in 3 sentences how a rate pause affects bank stocks.
-• Data Science: Fit a GradientBoostingClassifier on a toy dataset; compare to a single tree.
-• Medicine: Look up what "Phase 3 trial" means and why most drugs fail there.
-
-💻 LeetCode of the day
-Two Sum (Easy · Arrays & Hashing)
-Progress: 4/69 · 🔥 3-day streak
-Reply /done when you solve it or /skip to move on.
-
-🛠 Projects
-• daybreak: Add the evening check-in (open issue #3)
-
-💡 Busy morning: knock out the quiz before the career fair.
-```
+<img width="300" alt="IMG_0949" src="https://github.com/user-attachments/assets/fe66cb40-d6b5-433a-9ef6-e9d2b27eea34" />
+<img width="300" alt="IMG_0948" src="https://github.com/user-attachments/assets/896c4ebc-b80a-493c-8147-c5a9e98e9438" />
+<img width="300" alt="IMG_0947" src="https://github.com/user-attachments/assets/ce4d0dfa-6ed2-431b-b868-bb95d6e7e3d6" />
 
 ## The 3 big quality-of-life improvements
 
