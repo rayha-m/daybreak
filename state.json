@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-14",
+  "last_morning": "2026-10-15",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -28,7 +28,10 @@
     "https://www.statnews.com/2026/10/13/blackrock-humana-centerwell-deal-senior-care-medicare-clinics/?utm_campaign=rss",
     "https://www.cnbc.com/2026/10/14/cpi-inflation-breakdown-september-2026.html",
     "https://towardsdatascience.com/does-stacking-beat-your-best-model/",
-    "https://www.statnews.com/2026/10/14/the-startup-chasing-general-biological-intelligence-ai-prognosis/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/14/the-startup-chasing-general-biological-intelligence-ai-prognosis/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/10/15/september-producer-price-index-retail-sales-data.html",
+    "https://www.kdnuggets.com/building-ai-applications-with-open-source-agentic-api-server-ogx",
+    "https://www.statnews.com/2026/10/15/melanoma-diagnosis-mrna-cancer-vaccine-stat-summit-boston-2026/?utm_campaign=rss"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -51,10 +54,13 @@
     "Medicine: Research and jot down 3 bullet points on how private equity acquisitions impact staffing and operations in outpatient primary care clinics like CenterWell.",
     "Finance: Based on today's inflation report, write a short paragraph explaining how energy-driven cost-push inflation differs from demand-pull inflation and how it complicates central bank interest rate decisions.",
     "Data Science: Open a Jupyter notebook and implement a quick stacking classifier using scikit-learn on a toy dataset to test whether combining models improves accuracy over your best individual base model.",
-    "Medicine: Jot down 3 bullet points summarizing what general biological intelligence means in the context of biotech startups and how AI models are beginning to simulate biological systems."
+    "Medicine: Jot down 3 bullet points summarizing what general biological intelligence means in the context of biotech startups and how AI models are beginning to simulate biological systems.",
+    "Finance: Based on today's wholesale inflation report (fin7), write a short paragraph explaining producer price index pressures and how rising input costs squeeze corporate profit margins.",
+    "Data Science: Open a Jupyter notebook and test out a basic OpenAI-compatible client setup to understand how modular API servers route requests across different local or cloud models.",
+    "Medicine: Jot down 3 bullet points summarizing how personalized mRNA cancer vaccines work by targeting patient-specific neoantigens to stimulate an immune response."
   ],
   "today": {
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "leetcode": "two-sum"
   }
 }
