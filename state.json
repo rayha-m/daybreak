@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-15",
+  "last_morning": "2026-10-16",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -31,7 +31,10 @@
     "https://www.statnews.com/2026/10/14/the-startup-chasing-general-biological-intelligence-ai-prognosis/?utm_campaign=rss",
     "https://www.cnbc.com/2026/10/15/september-producer-price-index-retail-sales-data.html",
     "https://www.kdnuggets.com/building-ai-applications-with-open-source-agentic-api-server-ogx",
-    "https://www.statnews.com/2026/10/15/melanoma-diagnosis-mrna-cancer-vaccine-stat-summit-boston-2026/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/15/melanoma-diagnosis-mrna-cancer-vaccine-stat-summit-boston-2026/?utm_campaign=rss",
+    "https://www.cnbc.com/investingclub/2026/10/16/kimberly-clark-stock-q3-kenvue-deal-cramer.html",
+    "https://www.kdnuggets.com/agentic-rag-vs-naive-rag-when-your-retrieval-system-should-think-for-itself",
+    "https://www.statnews.com/2026/10/16/biotech-news-revmed-pancreatic-cancer-drug-nears-european-approval/?utm_campaign=rss"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -57,10 +60,13 @@
     "Medicine: Jot down 3 bullet points summarizing what general biological intelligence means in the context of biotech startups and how AI models are beginning to simulate biological systems.",
     "Finance: Based on today's wholesale inflation report (fin7), write a short paragraph explaining producer price index pressures and how rising input costs squeeze corporate profit margins.",
     "Data Science: Open a Jupyter notebook and test out a basic OpenAI-compatible client setup to understand how modular API servers route requests across different local or cloud models.",
-    "Medicine: Jot down 3 bullet points summarizing how personalized mRNA cancer vaccines work by targeting patient-specific neoantigens to stimulate an immune response."
+    "Medicine: Jot down 3 bullet points summarizing how personalized mRNA cancer vaccines work by targeting patient-specific neoantigens to stimulate an immune response.",
+    "Finance: Review today's note on Kimberly-Clark and write a short paragraph explaining how operational margin improvements and pricing power drive share value during choppy market conditions.",
+    "Data Science: Open a Jupyter notebook and sketch out a basic architectural loop demonstrating how an agentic RAG query loop decides whether to retrieve more context or synthesize an answer.",
+    "Medicine: Write 2-3 sentences explaining the regulatory and clinical significance of securing European market approval following prior FDA clearance for targeted cancer therapies."
   ],
   "today": {
-    "date": "2026-10-15",
+    "date": "2026-10-16",
     "leetcode": "two-sum"
   }
 }
