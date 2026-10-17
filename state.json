@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-16",
+  "last_morning": "2026-10-17",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -34,7 +34,10 @@
     "https://www.statnews.com/2026/10/15/melanoma-diagnosis-mrna-cancer-vaccine-stat-summit-boston-2026/?utm_campaign=rss",
     "https://www.cnbc.com/investingclub/2026/10/16/kimberly-clark-stock-q3-kenvue-deal-cramer.html",
     "https://www.kdnuggets.com/agentic-rag-vs-naive-rag-when-your-retrieval-system-should-think-for-itself",
-    "https://www.statnews.com/2026/10/16/biotech-news-revmed-pancreatic-cancer-drug-nears-european-approval/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/16/biotech-news-revmed-pancreatic-cancer-drug-nears-european-approval/?utm_campaign=rss",
+    "https://www.marketwatch.com/story/it-was-another-great-week-for-the-average-stock-as-market-leadership-shifts-away-from-tech-8e8516da?mod=mw_rss_topstories",
+    "https://towardsdatascience.com/when-eeg-models-see-the-same-people-in-training-and-testing/",
+    "https://www.sciencedaily.com/releases/2026/10/261016080912.htm"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -63,10 +66,13 @@
     "Medicine: Jot down 3 bullet points summarizing how personalized mRNA cancer vaccines work by targeting patient-specific neoantigens to stimulate an immune response.",
     "Finance: Review today's note on Kimberly-Clark and write a short paragraph explaining how operational margin improvements and pricing power drive share value during choppy market conditions.",
     "Data Science: Open a Jupyter notebook and sketch out a basic architectural loop demonstrating how an agentic RAG query loop decides whether to retrieve more context or synthesize an answer.",
-    "Medicine: Write 2-3 sentences explaining the regulatory and clinical significance of securing European market approval following prior FDA clearance for targeted cancer therapies."
+    "Medicine: Write 2-3 sentences explaining the regulatory and clinical significance of securing European market approval following prior FDA clearance for targeted cancer therapies.",
+    "Finance: Write a short paragraph explaining the structural difference between the standard market-cap weighted S&P 500 and the equal-weighted S&P 500, and what it signals when the equal-weighted index outperforms.",
+    "Data Science: Open a Jupyter notebook and use scikit-learn's GroupKFold on a mock DataFrame with a subject_id column to verify that no subject appears in both the training and testing sets of any split.",
+    "Medicine: Jot down 2-3 sentences explaining the gut-liver axis and why preventing bacterial endotoxin leakage from the intestine into the portal circulation reduces liver inflammation."
   ],
   "today": {
-    "date": "2026-10-16",
+    "date": "2026-10-17",
     "leetcode": "two-sum"
   }
 }
