@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-17",
+  "last_morning": "2026-10-18",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -37,7 +37,10 @@
     "https://www.statnews.com/2026/10/16/biotech-news-revmed-pancreatic-cancer-drug-nears-european-approval/?utm_campaign=rss",
     "https://www.marketwatch.com/story/it-was-another-great-week-for-the-average-stock-as-market-leadership-shifts-away-from-tech-8e8516da?mod=mw_rss_topstories",
     "https://towardsdatascience.com/when-eeg-models-see-the-same-people-in-training-and-testing/",
-    "https://www.sciencedaily.com/releases/2026/10/261016080912.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261016080912.htm",
+    "https://www.marketwatch.com/story/stocks-are-heading-for-a-high-stakes-showdown-as-strong-earnings-collide-with-rising-borrowing-costs-6f8ea5b8?mod=mw_rss_topstories",
+    "https://towardsdatascience.com/both-charts-are-right-so-why-do-they-disagree/",
+    "https://www.sciencedaily.com/releases/2026/10/261017230021.htm"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -69,10 +72,13 @@
     "Medicine: Write 2-3 sentences explaining the regulatory and clinical significance of securing European market approval following prior FDA clearance for targeted cancer therapies.",
     "Finance: Write a short paragraph explaining the structural difference between the standard market-cap weighted S&P 500 and the equal-weighted S&P 500, and what it signals when the equal-weighted index outperforms.",
     "Data Science: Open a Jupyter notebook and use scikit-learn's GroupKFold on a mock DataFrame with a subject_id column to verify that no subject appears in both the training and testing sets of any split.",
-    "Medicine: Jot down 2-3 sentences explaining the gut-liver axis and why preventing bacterial endotoxin leakage from the intestine into the portal circulation reduces liver inflammation."
+    "Medicine: Jot down 2-3 sentences explaining the gut-liver axis and why preventing bacterial endotoxin leakage from the intestine into the portal circulation reduces liver inflammation.",
+    "Finance: Write a short paragraph explaining the discounted cash flow mechanism: why rising bond yields raise discount rates and disproportionately pressure high-growth valuations.",
+    "Data Science: Open a Jupyter notebook, create a synthetic DataFrame illustrating Simpson's paradox across two subgroups, and run a groupby correlation to observe the sign reversal.",
+    "Medicine: Jot down 2-3 sentences explaining how neuromodulation trials like deep brain stimulation define clinical endpoints compared to traditional pharmaceutical psychiatric trials."
   ],
   "today": {
-    "date": "2026-10-17",
+    "date": "2026-10-18",
     "leetcode": "two-sum"
   }
 }
