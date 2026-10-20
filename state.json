@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-18",
+  "last_morning": "2026-10-20",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -40,7 +40,10 @@
     "https://www.sciencedaily.com/releases/2026/10/261016080912.htm",
     "https://www.marketwatch.com/story/stocks-are-heading-for-a-high-stakes-showdown-as-strong-earnings-collide-with-rising-borrowing-costs-6f8ea5b8?mod=mw_rss_topstories",
     "https://towardsdatascience.com/both-charts-are-right-so-why-do-they-disagree/",
-    "https://www.sciencedaily.com/releases/2026/10/261017230021.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261017230021.htm",
+    "https://www.marketwatch.com/story/builders-slash-prices-on-new-homes-as-buyer-traffic-drops-to-14-year-low-3dd8caea?mod=mw_rss_topstories",
+    "https://towardsdatascience.com/synthetic-to-real-transfer-with-frozen-dinov3-features/",
+    "https://www.statnews.com/2026/10/20/openevidence-jama-paper-leaves-open-questions-health-tech/?utm_campaign=rss"
   ],
   "recent_assignments": [
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
@@ -75,10 +78,13 @@
     "Medicine: Jot down 2-3 sentences explaining the gut-liver axis and why preventing bacterial endotoxin leakage from the intestine into the portal circulation reduces liver inflammation.",
     "Finance: Write a short paragraph explaining the discounted cash flow mechanism: why rising bond yields raise discount rates and disproportionately pressure high-growth valuations.",
     "Data Science: Open a Jupyter notebook, create a synthetic DataFrame illustrating Simpson's paradox across two subgroups, and run a groupby correlation to observe the sign reversal.",
-    "Medicine: Jot down 2-3 sentences explaining how neuromodulation trials like deep brain stimulation define clinical endpoints compared to traditional pharmaceutical psychiatric trials."
+    "Medicine: Jot down 2-3 sentences explaining how neuromodulation trials like deep brain stimulation define clinical endpoints compared to traditional pharmaceutical psychiatric trials.",
+    "Finance: Connect today's Finance article to something from class or a project you're working on.",
+    "Data Science: Connect today's Data Science article to something from class or a project you're working on.",
+    "Medicine: Connect today's Medicine article to something from class or a project you're working on."
   ],
   "today": {
-    "date": "2026-10-18",
+    "date": "2026-10-20",
     "leetcode": "two-sum"
   }
 }
