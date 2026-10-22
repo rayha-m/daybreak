@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-21",
+  "last_morning": "2026-10-22",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -46,11 +46,12 @@
     "https://www.statnews.com/2026/10/20/openevidence-jama-paper-leaves-open-questions-health-tech/?utm_campaign=rss",
     "https://www.cnbc.com/2026/10/21/goldman-sachs-jpmorgan-morgan-stanley-ai-trading.html",
     "https://towardsdatascience.com/decision-models-in-action-build-a-hybrid-llm-workflow/",
-    "https://www.statnews.com/2026/10/21/biotech-news-gsk-picks-up-hep-b-drug-approval/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/21/biotech-news-gsk-picks-up-hep-b-drug-approval/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/10/22/meta-stock-q3-earnings-free-cash-flow.html",
+    "https://www.kdnuggets.com/google-open-sources-harness-self-improving-ai-agents-without-retraining",
+    "https://www.statnews.com/2026/10/22/esmo-2026-what-to-know-ahead-of-moderna-merck-cancer-vaccine-data-reveal/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
-    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
     "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
@@ -87,10 +88,13 @@
     "Medicine: Connect today's Medicine article to something from class or a project you're working on.",
     "Finance: Write a short paragraph explaining how Wall Street equity trading revenue and margin lending generate fee-based income for investment banks during high-volatility market booms.",
     "Data Science: Open a Jupyter notebook and test out a basic hybrid LLM workflow by writing a small function that routes a query through a decision model before calling an LLM endpoint.",
-    "Medicine: Jot down 3 bullet points explaining how FDA drug approval milestones evaluate clinical efficacy and safety endpoints in advanced therapeutic trials."
+    "Medicine: Jot down 3 bullet points explaining how FDA drug approval milestones evaluate clinical efficacy and safety endpoints in advanced therapeutic trials.",
+    "Finance: Write a short paragraph explaining how heavy corporate capital expenditures on AI infrastructure can temporarily reduce free cash flow and impact debt yields.",
+    "Data Science: Open a Jupyter notebook and sketch a mock Python function representing a recursive feedback loop where an agent evaluates its own output before updating its prompt.",
+    "Medicine: Jot down 2-3 sentences explaining how Phase 3 clinical trials evaluate efficacy and safety endpoints ahead of major regulatory submissions."
   ],
   "today": {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "leetcode": "two-sum"
   }
 }
