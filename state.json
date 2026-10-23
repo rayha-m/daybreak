@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-22",
+  "last_morning": "2026-10-23",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -49,12 +49,12 @@
     "https://www.statnews.com/2026/10/21/biotech-news-gsk-picks-up-hep-b-drug-approval/?utm_campaign=rss",
     "https://www.cnbc.com/2026/10/22/meta-stock-q3-earnings-free-cash-flow.html",
     "https://www.kdnuggets.com/google-open-sources-harness-self-improving-ai-agents-without-retraining",
-    "https://www.statnews.com/2026/10/22/esmo-2026-what-to-know-ahead-of-moderna-merck-cancer-vaccine-data-reveal/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/22/esmo-2026-what-to-know-ahead-of-moderna-merck-cancer-vaccine-data-reveal/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/10/23/alaska-senate-election-doj-lawsuit-sullivan.html",
+    "https://towardsdatascience.com/dont-let-messy-data-bend-your-curves/",
+    "https://www.statnews.com/2026/10/23/tango-pancreatic-cancer-star-moderna-readout-newsletter/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
-    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
-    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
     "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
@@ -91,10 +91,13 @@
     "Medicine: Jot down 3 bullet points explaining how FDA drug approval milestones evaluate clinical efficacy and safety endpoints in advanced therapeutic trials.",
     "Finance: Write a short paragraph explaining how heavy corporate capital expenditures on AI infrastructure can temporarily reduce free cash flow and impact debt yields.",
     "Data Science: Open a Jupyter notebook and sketch a mock Python function representing a recursive feedback loop where an agent evaluates its own output before updating its prompt.",
-    "Medicine: Jot down 2-3 sentences explaining how Phase 3 clinical trials evaluate efficacy and safety endpoints ahead of major regulatory submissions."
+    "Medicine: Jot down 2-3 sentences explaining how Phase 3 clinical trials evaluate efficacy and safety endpoints ahead of major regulatory submissions.",
+    "Finance: Write down one question today's Finance reading raised, and spend 15 min answering it.",
+    "Data Science: Write down one question today's Data Science reading raised, and spend 15 min answering it.",
+    "Medicine: Write down one question today's Medicine reading raised, and spend 15 min answering it."
   ],
   "today": {
-    "date": "2026-10-22",
+    "date": "2026-10-23",
     "leetcode": "two-sum"
   }
 }
