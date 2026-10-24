@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-23",
+  "last_morning": "2026-10-24",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -52,12 +52,12 @@
     "https://www.statnews.com/2026/10/22/esmo-2026-what-to-know-ahead-of-moderna-merck-cancer-vaccine-data-reveal/?utm_campaign=rss",
     "https://www.cnbc.com/2026/10/23/alaska-senate-election-doj-lawsuit-sullivan.html",
     "https://towardsdatascience.com/dont-let-messy-data-bend-your-curves/",
-    "https://www.statnews.com/2026/10/23/tango-pancreatic-cancer-star-moderna-readout-newsletter/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/23/tango-pancreatic-cancer-star-moderna-readout-newsletter/?utm_campaign=rss",
+    "https://www.marketwatch.com/story/investors-recent-money-moves-show-a-preference-for-quality-over-momentum-within-the-s-p-500-ed6b5149?mod=mw_rss_topstories",
+    "https://towardsdatascience.com/how-to-add-guardrails-to-a-local-llm-agent/",
+    "https://www.statnews.com/2026/10/23/moderna-merck-melanoma-cancer-vaccine-data-arrived-early-esmo/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
-    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
-    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Review today's note on monetary policy and write a quick paragraph explaining how higher interest rates impact corporate valuations and consumer spending.",
     "Data Science: Open a Jupyter notebook and sketch out a basic router-dispatcher pattern for multi-step agentic workflows as covered in the architectural guide.",
@@ -94,10 +94,13 @@
     "Medicine: Jot down 2-3 sentences explaining how Phase 3 clinical trials evaluate efficacy and safety endpoints ahead of major regulatory submissions.",
     "Finance: Write down one question today's Finance reading raised, and spend 15 min answering it.",
     "Data Science: Write down one question today's Data Science reading raised, and spend 15 min answering it.",
-    "Medicine: Write down one question today's Medicine reading raised, and spend 15 min answering it."
+    "Medicine: Write down one question today's Medicine reading raised, and spend 15 min answering it.",
+    "Finance: Define the 'Quality' investing factor in two sentences, noting two specific balance sheet or profitability metrics (such as return on equity or low leverage) that funds use to screen for it.",
+    "Data Science: Draft a short list of three specific validation checks (e.g., JSON schema adherence, banned substring regex, confidence threshold) you would place in an LLM agent guardrail pipeline.",
+    "Medicine: Write two sentences distinguishing 'overall survival' (OS) from 'recurrence-free survival' (RFS) as clinical trial efficacy endpoints in oncology."
   ],
   "today": {
-    "date": "2026-10-23",
+    "date": "2026-10-24",
     "leetcode": "two-sum"
   }
 }
