@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-25",
+  "last_morning": "2026-10-27",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -58,12 +58,12 @@
     "https://www.statnews.com/2026/10/23/moderna-merck-melanoma-cancer-vaccine-data-arrived-early-esmo/?utm_campaign=rss",
     "https://www.marketwatch.com/story/my-spouse-was-awarded-90-000-from-my-401-k-in-our-divorce-how-is-that-fair-dc839aa3?mod=mw_rss_topstories",
     "https://towardsdatascience.com/agentic-ai-in-production-why-your-agent-keeps-answering-after-its-tools-fail/",
-    "https://www.sciencedaily.com/releases/2026/10/261024222028.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261024222028.htm",
+    "https://www.cnbc.com/2026/10/27/world-bank-president-ajay-banga.html",
+    "https://towardsdatascience.com/i-broke-a-browser-agent-on-purpose-spotting-the-fault-was-not-the-same-as-fixing-it/",
+    "https://www.statnews.com/2026/10/27/fda-personalized-gene-therapy-guidance-individualized-feature-space/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Medicine: Summarize how the NEOPRISM-CRC clinical trial used neoadjuvant immunotherapy to shrink bowel tumors before surgery.",
-    "Finance: Write a three-sentence explanation of what an all-stock buyout implies for existing shareholder dilution and why a buyer might prefer stock over debt or cash.",
-    "Data Science: In a quick notebook cell, draft a small test function that randomizes choice order to detect position bias when evaluating an LLM prompt response.",
     "Medicine: Note down in 2-3 sentences the core biological difference between surgical fat removal and injectable therapeutics that trigger targeted cell death.",
     "Finance: Review the impact of supply shocks on central bank policy from today's article and write a short paragraph explaining how agricultural or oil shocks complicate inflation targeting.",
     "Data Science: Open a Jupyter notebook and test out a basic MCMC sampling function or inspect how convergence diagnostics are computed using a standard Python library.",
@@ -100,10 +100,13 @@
     "Medicine: Write two sentences distinguishing 'overall survival' (OS) from 'recurrence-free survival' (RFS) as clinical trial efficacy endpoints in oncology.",
     "Finance: Connect today's Finance article to something from class or a project you're working on.",
     "Data Science: Connect today's Data Science article to something from class or a project you're working on.",
-    "Medicine: Connect today's Medicine article to something from class or a project you're working on."
+    "Medicine: Connect today's Medicine article to something from class or a project you're working on.",
+    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
+    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
   ],
   "today": {
-    "date": "2026-10-25",
+    "date": "2026-10-27",
     "leetcode": "two-sum"
   }
 }
