@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-27",
+  "last_morning": "2026-10-30",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -61,12 +61,12 @@
     "https://www.sciencedaily.com/releases/2026/10/261024222028.htm",
     "https://www.cnbc.com/2026/10/27/world-bank-president-ajay-banga.html",
     "https://towardsdatascience.com/i-broke-a-browser-agent-on-purpose-spotting-the-fault-was-not-the-same-as-fixing-it/",
-    "https://www.statnews.com/2026/10/27/fda-personalized-gene-therapy-guidance-individualized-feature-space/?utm_campaign=rss"
+    "https://www.statnews.com/2026/10/27/fda-personalized-gene-therapy-guidance-individualized-feature-space/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/10/30/halloween-gets-pricier-as-chocolate-costs-rise-hershey-could-feel-it.html",
+    "https://towardsdatascience.com/pick-a-number-between-1-and-10/",
+    "https://www.statnews.com/pharmalot/2026/10/30/up-and-down-the-ladder-jobs-pharma-biotech-lilly/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Medicine: Note down in 2-3 sentences the core biological difference between surgical fat removal and injectable therapeutics that trigger targeted cell death.",
-    "Finance: Review the impact of supply shocks on central bank policy from today's article and write a short paragraph explaining how agricultural or oil shocks complicate inflation targeting.",
-    "Data Science: Open a Jupyter notebook and test out a basic MCMC sampling function or inspect how convergence diagnostics are computed using a standard Python library.",
     "Medicine: Research and jot down 3 bullet points on how private equity acquisitions impact staffing and operations in outpatient primary care clinics like CenterWell.",
     "Finance: Based on today's inflation report, write a short paragraph explaining how energy-driven cost-push inflation differs from demand-pull inflation and how it complicates central bank interest rate decisions.",
     "Data Science: Open a Jupyter notebook and implement a quick stacking classifier using scikit-learn on a toy dataset to test whether combining models improves accuracy over your best individual base model.",
@@ -103,10 +103,13 @@
     "Medicine: Connect today's Medicine article to something from class or a project you're working on.",
     "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
     "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
-    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
+    "Finance: Connect today's Finance article to something from class or a project you're working on.",
+    "Data Science: Connect today's Data Science article to something from class or a project you're working on.",
+    "Medicine: Connect today's Medicine article to something from class or a project you're working on."
   ],
   "today": {
-    "date": "2026-10-27",
+    "date": "2026-10-30",
     "leetcode": "two-sum"
   }
 }
