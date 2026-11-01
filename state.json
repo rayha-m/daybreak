@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-10-31",
+  "last_morning": "2026-11-01",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -67,12 +67,12 @@
     "https://www.statnews.com/pharmalot/2026/10/30/up-and-down-the-ladder-jobs-pharma-biotech-lilly/?utm_campaign=rss",
     "https://www.cnbc.com/investingclub/2026/10/31/stocks-started-the-week-with-promise-but-ended-in-despair.html",
     "https://towardsdatascience.com/we-taught-ai-to-answer-questions-who-taught-it-to-change-its-mind/",
-    "https://www.sciencedaily.com/releases/2026/10/261031012912.htm"
+    "https://www.sciencedaily.com/releases/2026/10/261031012912.htm",
+    "https://www.marketwatch.com/story/grand-theft-callout-gta-6-fans-are-missing-work-on-the-games-release-day-because-they-dont-want-to-wait-anymore-5f2fa2e3?mod=mw_rss_topstories",
+    "https://towardsdatascience.com/the-enterprise-context-layer-a-practitioners-guide-to-6-advanced-architectural-patterns/",
+    "https://www.sciencedaily.com/releases/2026/10/261030003001.htm"
   ],
   "recent_assignments": [
-    "Medicine: Jot down 3 bullet points summarizing what general biological intelligence means in the context of biotech startups and how AI models are beginning to simulate biological systems.",
-    "Finance: Based on today's wholesale inflation report (fin7), write a short paragraph explaining producer price index pressures and how rising input costs squeeze corporate profit margins.",
-    "Data Science: Open a Jupyter notebook and test out a basic OpenAI-compatible client setup to understand how modular API servers route requests across different local or cloud models.",
     "Medicine: Jot down 3 bullet points summarizing how personalized mRNA cancer vaccines work by targeting patient-specific neoantigens to stimulate an immune response.",
     "Finance: Review today's note on Kimberly-Clark and write a short paragraph explaining how operational margin improvements and pricing power drive share value during choppy market conditions.",
     "Data Science: Open a Jupyter notebook and sketch out a basic architectural loop demonstrating how an agentic RAG query loop decides whether to retrieve more context or synthesize an answer.",
@@ -109,10 +109,13 @@
     "Medicine: Connect today's Medicine article to something from class or a project you're working on.",
     "Finance: Read today's Finance article and write 3 bullet points on what you learned.",
     "Data Science: Read today's Data Science article and write 3 bullet points on what you learned.",
-    "Medicine: Read today's Medicine article and write 3 bullet points on what you learned."
+    "Medicine: Read today's Medicine article and write 3 bullet points on what you learned.",
+    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
+    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
   ],
   "today": {
-    "date": "2026-10-31",
+    "date": "2026-11-01",
     "leetcode": "two-sum"
   }
 }
