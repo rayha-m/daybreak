@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-11-06",
+  "last_morning": "2026-11-07",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -73,12 +73,12 @@
     "https://www.sciencedaily.com/releases/2026/10/261030003001.htm",
     "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
     "https://www.kdnuggets.com/top-7-python-libraries-for-time-series-analysis-and-modeling",
-    "https://www.statnews.com/2026/11/06/novartis-zolgensma-gene-therapy-tumor-risk/?utm_campaign=rss"
+    "https://www.statnews.com/2026/11/06/novartis-zolgensma-gene-therapy-tumor-risk/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/11/07/berkshire-hathaway-q3-2026-earnings-buybacks.html",
+    "https://towardsdatascience.com/timestral-t0-tabby-and-morpheus-20-compared-on-gift-eval/",
+    "https://www.statnews.com/2026/11/07/aha-conference-news-novartis-lp-a-pelacarsen-heart-disease-trial-mystery/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Medicine: Write 2-3 sentences explaining the regulatory and clinical significance of securing European market approval following prior FDA clearance for targeted cancer therapies.",
-    "Finance: Write a short paragraph explaining the structural difference between the standard market-cap weighted S&P 500 and the equal-weighted S&P 500, and what it signals when the equal-weighted index outperforms.",
-    "Data Science: Open a Jupyter notebook and use scikit-learn's GroupKFold on a mock DataFrame with a subject_id column to verify that no subject appears in both the training and testing sets of any split.",
     "Medicine: Jot down 2-3 sentences explaining the gut-liver axis and why preventing bacterial endotoxin leakage from the intestine into the portal circulation reduces liver inflammation.",
     "Finance: Write a short paragraph explaining the discounted cash flow mechanism: why rising bond yields raise discount rates and disproportionately pressure high-growth valuations.",
     "Data Science: Open a Jupyter notebook, create a synthetic DataFrame illustrating Simpson's paradox across two subgroups, and run a groupby correlation to observe the sign reversal.",
@@ -115,10 +115,13 @@
     "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences.",
     "Finance: Write a 3-sentence summary explaining why a 16 percent yield indicates debt market stress and how it raises a company's overall cost of capital.",
     "Data Science: Pick one time-series library from the article (like statsmodels or prophet) and write out pseudo-code for how you would use it to create lag features.",
-    "Medicine: Summarize in 3 sentences how AAV gene therapies deliver genetic material into cells and why insertional mutagenesis poses a safety challenge for regulators."
+    "Medicine: Summarize in 3 sentences how AAV gene therapies deliver genetic material into cells and why insertional mutagenesis poses a safety challenge for regulators.",
+    "Finance: Explain in 3 sentences why a major firm might choose to accelerate share repurchases even during a quarter with declining operating earnings.",
+    "Data Science: Write a 5-line pandas snippet that creates lag features (t-1, t-5) and a 7-day rolling mean for a daily time-series DataFrame.",
+    "Medicine: Write 2-3 sentences explaining the distinction between a surrogate endpoint (like reducing Lp(a) levels) and a primary clinical endpoint (like reducing heart attacks)."
   ],
   "today": {
-    "date": "2026-11-06",
+    "date": "2026-11-07",
     "leetcode": "two-sum"
   }
 }
