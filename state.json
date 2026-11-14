@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-11-08",
+  "last_morning": "2026-11-14",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -79,12 +79,12 @@
     "https://www.statnews.com/2026/11/07/aha-conference-news-novartis-lp-a-pelacarsen-heart-disease-trial-mystery/?utm_campaign=rss",
     "https://www.marketwatch.com/story/it-feels-like-hes-quietly-building-a-separate-life-my-husband-inherited-500-000-but-he-refuses-to-spend-it-on-our-home-06535cff?mod=mw_rss_topstories",
     "https://towardsdatascience.com/how-to-build-multi-agent-systems-with-the-openai-agents-sdk/",
-    "https://www.sciencedaily.com/releases/2026/11/261104084024.htm"
+    "https://www.sciencedaily.com/releases/2026/11/261104084024.htm",
+    "https://www.cnbc.com/2026/11/14/faa-ground-stop-flights-resume-delays.html",
+    "https://towardsdatascience.com/how-to-build-a-markov-chain-in-python-with-numpy/",
+    "https://www.sciencedaily.com/releases/2026/11/261113231624.htm"
   ],
   "recent_assignments": [
-    "Medicine: Jot down 2-3 sentences explaining how neuromodulation trials like deep brain stimulation define clinical endpoints compared to traditional pharmaceutical psychiatric trials.",
-    "Finance: Connect today's Finance article to something from class or a project you're working on.",
-    "Data Science: Connect today's Data Science article to something from class or a project you're working on.",
     "Medicine: Connect today's Medicine article to something from class or a project you're working on.",
     "Finance: Write a short paragraph explaining how Wall Street equity trading revenue and margin lending generate fee-based income for investment banks during high-volatility market booms.",
     "Data Science: Open a Jupyter notebook and test out a basic hybrid LLM workflow by writing a small function that routes a query through a decision model before calling an LLM endpoint.",
@@ -121,10 +121,13 @@
     "Medicine: Write 2-3 sentences explaining the distinction between a surrogate endpoint (like reducing Lp(a) levels) and a primary clinical endpoint (like reducing heart attacks).",
     "Finance: Summarize today's Finance article in one tweet-length sentence.",
     "Data Science: Summarize today's Data Science article in one tweet-length sentence.",
-    "Medicine: Summarize today's Medicine article in one tweet-length sentence."
+    "Medicine: Summarize today's Medicine article in one tweet-length sentence.",
+    "Finance: Connect today's Finance article to something from class or a project you're working on.",
+    "Data Science: Connect today's Data Science article to something from class or a project you're working on.",
+    "Medicine: Connect today's Medicine article to something from class or a project you're working on."
   ],
   "today": {
-    "date": "2026-11-08",
+    "date": "2026-11-14",
     "leetcode": "two-sum"
   }
 }
