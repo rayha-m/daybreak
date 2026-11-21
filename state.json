@@ -1,5 +1,5 @@
 {
-  "last_morning": "2026-11-15",
+  "last_morning": "2026-11-21",
   "last_evening": null,
   "telegram_offset": 361685610,
   "leetcode": {
@@ -85,12 +85,12 @@
     "https://www.sciencedaily.com/releases/2026/11/261113231624.htm",
     "https://www.cnbc.com/2026/11/15/trump-breaks-silence-on-faa-nationwide-ground-stop-blames-biden-.html",
     "https://towardsdatascience.com/a-practitioners-guide-to-6-agentic-graphrag-patterns/",
-    "https://www.statnews.com/2026/11/15/fda-rejects-ivonescimab-lung-cancer-treatment-summit-therapeutics/?utm_campaign=rss"
+    "https://www.statnews.com/2026/11/15/fda-rejects-ivonescimab-lung-cancer-treatment-summit-therapeutics/?utm_campaign=rss",
+    "https://www.cnbc.com/2026/11/21/trump-fbi-database-hack.html",
+    "https://towardsdatascience.com/how-to-learn-supply-chain-analytics-in-2027-with-claude-code/",
+    "https://www.statnews.com/2026/11/21/stat-letters-to-editor-medical-school-pediatric-emergency-care/?utm_campaign=rss"
   ],
   "recent_assignments": [
-    "Medicine: Jot down 3 bullet points explaining how FDA drug approval milestones evaluate clinical efficacy and safety endpoints in advanced therapeutic trials.",
-    "Finance: Write a short paragraph explaining how heavy corporate capital expenditures on AI infrastructure can temporarily reduce free cash flow and impact debt yields.",
-    "Data Science: Open a Jupyter notebook and sketch a mock Python function representing a recursive feedback loop where an agent evaluates its own output before updating its prompt.",
     "Medicine: Jot down 2-3 sentences explaining how Phase 3 clinical trials evaluate efficacy and safety endpoints ahead of major regulatory submissions.",
     "Finance: Write down one question today's Finance reading raised, and spend 15 min answering it.",
     "Data Science: Write down one question today's Data Science reading raised, and spend 15 min answering it.",
@@ -127,10 +127,13 @@
     "Medicine: Connect today's Medicine article to something from class or a project you're working on.",
     "Finance: Read today's Finance article and write 3 bullet points on what you learned.",
     "Data Science: Read today's Data Science article and write 3 bullet points on what you learned.",
-    "Medicine: Read today's Medicine article and write 3 bullet points on what you learned."
+    "Medicine: Read today's Medicine article and write 3 bullet points on what you learned.",
+    "Finance: Find one term in today's Finance article you didn't know; explain it in 2 sentences.",
+    "Data Science: Find one term in today's Data Science article you didn't know; explain it in 2 sentences.",
+    "Medicine: Find one term in today's Medicine article you didn't know; explain it in 2 sentences."
   ],
   "today": {
-    "date": "2026-11-15",
+    "date": "2026-11-21",
     "leetcode": "two-sum"
   }
 }
